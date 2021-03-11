@@ -17,11 +17,11 @@ User can choose sorting order:
 
  - Increasing
 
-![screenshot]()
+![screenshot](./src/screenshots/nd5-i.JPG)
 
  - Decreasing
 
-![screenshot]()
+![screenshot](./src/screenshots/nd5-d.JPG)
 
 
 
