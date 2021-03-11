@@ -1,5 +1,6 @@
 package nd.pkg5;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ND5 {
@@ -7,35 +8,64 @@ public class ND5 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ivesk masyvo dydi:");
-        int kiek = sc.nextInt();
+        System.out.println("------- Bubble Sort ------- ");
+        System.out.println();
+        System.out.println("Enter array size:");
+        System.out.println();
+        int amount = sc.nextInt();
+        System.out.println();
+        System.out.println("Generated arrays numbers");
 
-        double[] sk = new double[kiek];
-
-        for (int i = 0; i < sk.length; i++) {
-            sk[i] = Math.random();
-            System.out.println(sk[i]);
+        int[] numbers = new int[amount];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = (int) (Math.random() * 90f) + 1;
         }
+
+        System.out.println(Arrays.toString(numbers));
         System.out.println();
         System.out.println("------------------");
         System.out.println();
-        System.out.println("Surikiuotas didejimo tvarka:");
+        System.out.println("Select sorting order:");
+        System.out.println();
+        System.out.println("'1' for increasing");
+        System.out.println();
+        System.out.println("'2' for decreasing");
+        System.out.println();
+        int order = sc.nextInt();
         System.out.println();
 
-        double temp = 0;
+        int temp = 0;
 
-        for (int i = 0; i < sk.length; i++) {
-            for (int j = 0; j < sk.length; j++) {
-                if (sk[i] < sk[j]) {
-                    temp = sk[i];
-                    sk[i] = sk[j];
-                    sk[j] = temp;
+        if (order == 1) {
+            for (int i = 0; i < numbers.length; i++) {
+                for (int j = i + 1; j < numbers.length; j++) {
+                    if (numbers[i] > numbers[j]) {
+                        temp = numbers[i];
+                        numbers[i] = numbers[j];
+                        numbers[j] = temp;
+                    }
                 }
             }
         }
-        for (int i = 0; i < sk.length; i++) {
-            System.out.println(i + " - " + sk[i]);
+
+        if (order == 2) {
+            for (int i = 0; i < numbers.length; i++) {
+                for (int j = i + 1; j < numbers.length; j++) {
+                    if (numbers[i] < numbers[j]) {
+                        temp = numbers[i];
+                        numbers[i] = numbers[j];
+                        numbers[j] = temp;
+                    }
+                }
+            }
         }
+
+        System.out.println(Arrays.toString(numbers));
+        System.out.println();
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.println((i + 1) + " - " + numbers[i]);
+        }
+        System.out.println();
     }
 
 }
